@@ -33,7 +33,7 @@ def ftp_guess(host):
 	jobs = Queue.Queue(0)
 	for username in open('dict/username'):
 		jobs.put(username.rstrip()) #將文本加入到队列中
-	for x in range(5): #创建10个线程
+	for x in range(10): #创建10个线程
 		t = ftpguess(jobs,host).start()
-		#time.sleep(2)
+		time.sleep(2)
 	return True
