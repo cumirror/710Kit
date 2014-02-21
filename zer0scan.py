@@ -1,6 +1,6 @@
-#!/usr/bin/python
-# Filename: zeroscan.py
-# Athor: Zer0Cloud
+#!/usr/bin/env python
+#encoding: utf-8
+#code by zer0cloud
 
 import sys,getopt
 from lib import is_url
@@ -24,20 +24,17 @@ def main():
 			usage()
 			sys.exit()
 		elif c in ("-t"):
-			#print 'target'
-			url = v	
+			url = v
 			if not is_url(url):
 				print 'URL Error :('
+		elif url == '':
+			print 'Please enter target'
 		elif c in ("-s"):
-			#print 'subdomain'
 			get_subdomain(url)
 		elif c in ("-i"):
-			#print 'sameip'
 			same_ip(url)
 		elif c in ("--ftp"):
-			print 'ftp'
 			ftp_guess(url)
-	
 def usage():
 	print 'zer0scan.py	[-t][value][-s|-i|--ftp]\n'
 	print 'e.g.'
