@@ -7,7 +7,7 @@ from BeautifulSoup import BeautifulSoup
 
 def get_subdomain(url):	
 	'''
-	查询网站到子域名
+	查询网站子域名
 	'''
 	try:
 		results = open('dict/domain','w+');
