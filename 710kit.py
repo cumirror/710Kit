@@ -36,9 +36,9 @@ def main():
 		elif c in ("--ftp"):
 			ftp_guess(url)
 def usage():
-	print 'zer0scan.py	[-t][value][-s|-i|--ftp]\n'
+	print '710kit.py	[-t][value][-s|-i|--ftp]\n'
 	print 'e.g.'
-	print 'zer0scan.py	-t www.google.com -i\n'
+	print '710kit.py	-t www.google.com -i\n'
 	print 'optional argumens:'
 	print '  -h,--help	Show this help message and exit'
 	print '  -t		Enter the target like www.google.com'
