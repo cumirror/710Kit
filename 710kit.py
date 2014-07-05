@@ -3,7 +3,7 @@
 #code by zer0cloud
 
 import sys,getopt
-from lib import is_url
+from lib import *
 
 from plugins.sameip import same_ip
 from plugins.subdomain import get_subdomain
@@ -27,9 +27,14 @@ def main():
 			url = v
 			if not is_url(url):
 				print 'URL Error :('
+				sys.exit()
 		elif url == '':
 			print 'Please enter target'
 		elif c in ("-s"):
+			domain = getdomain(url)
+			if domain == False:
+				print 'URL Error :(('
+				sys.exit()
 			get_subdomain(url)
 		elif c in ("-i"):
 			same_ip(url)

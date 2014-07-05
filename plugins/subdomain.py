@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 #encoding: utf-8
-#code by zer0cloud
+#code by 710
 
+import re
 import requests
 from BeautifulSoup import BeautifulSoup
 
@@ -10,6 +11,7 @@ def get_subdomain(url):
 	查询网站子域名
 	'''
 	try:
+		
 		results = open('dict/domain','w+');
 		source = requests.get('http://i.links.cn/subdomain/' + url + '.html')
 		soup = BeautifulSoup(source.text)
@@ -19,9 +21,13 @@ def get_subdomain(url):
 			print 'Sorry,Nothing :('
 		for div in divs:
 			link = div.a.string + '\n'
+			print link
 			results.write(link)
 		results.close()
 		print 'the result is in dict :)'
 	except:
 		print '\nSome error!!'
 		return True
+def get_sub_baidu(url):
+	source = request.get('http://www.baidu.com/s?rn=100&pn=200&wd=site:'+ url)	
+	links = re.findall(r'<span class="g">([^>]+?)</span>',source)
