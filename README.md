@@ -5,7 +5,6 @@
 
 依赖:  
 - Requests
-- Beautifulsoup
 
 已完成功能：  
 - 子域名查询
