@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # encoding: utf-8
 # by 710
-from socket import gethostbyname, gethostname, socket, AF_INET, SOCK_STREAM, SOCK_DGRAM
+from socket import gethostbyname,socket,AF_INET,SOCK_STREAM
 from threading import Thread
 import Queue
 import time
@@ -18,12 +18,13 @@ class portScan(Thread):
 				break
 			ip = self.host_list.get()
 			s = socket(AF_INET,SOCK_STREAM)
-			print "%s of %s" % (self.port,ip)
+			#print "%s of %s" % (self.port,ip)
 			try:
+				s.settimeout(3)
 				s.connect((ip,self.port))
 				print "%s of %s is open" % (self.port,ip)
 			except:
-				print "error"
+				print "%s error" % ip
 			
 def port_scan(port):
 	jobs = Queue.Queue(0)
