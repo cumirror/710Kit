@@ -19,3 +19,8 @@ def getdomain(url):
 		return domain
 	except:
 		return False
+
+def openfile(filename):
+	f = open(filename,'w')
+	return f
+
