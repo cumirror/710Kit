@@ -1,7 +1,8 @@
 # !/usr/bin/env python
 # encoding: utf-8
-# by 710
+# code by 710
 from socket import gethostbyname,socket,AF_INET,SOCK_STREAM
+from urlparse import urlparse
 from threading import Thread
 import Queue
 import time
@@ -16,7 +17,11 @@ class portScan(Thread):
 		while True:
 			if self.host_list.empty():
 				break
-			ip = self.host_list.get()
+			url = urlparse(self.host_list.get())
+			ip = url.netloc
+			if ip == '':
+				ip = self.host_list.get()
+			#print ip
 			s = socket(AF_INET,SOCK_STREAM)
 			#print "%s of %s" % (self.port,ip)
 			try:
