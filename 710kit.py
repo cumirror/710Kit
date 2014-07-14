@@ -35,7 +35,7 @@ def main():
 			if domain == False:
 				print 'URL Error :(('
 				sys.exit()
-			get_subdomain(url)
+			get_subdomain(domain)
 		elif c in ("-i"):
 			same_ip(url)
 		elif c in ("--ftp"):
