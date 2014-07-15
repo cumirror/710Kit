@@ -39,12 +39,12 @@ class portScan(Thread):
 				print "%s error" % ip
 			
 def port_scan(port):
-	result_file = openfile('mult_domains_port_result')
+	result_file = openfile('../dict/port_result')
 	result_file.write("the websites of %s is open:\n" % port)
 	jobs = Queue.Queue(0)
 	for url in open('../dict/urls'):
-		jobs.put(url.rstrip()) #將文本加入到队列中
-	for x in range(10): #创建10个线程
+		jobs.put(url.rstrip()) 	#將文本加入到队列中
+	for x in range(20): 		#创建20个线程
 		t = portScan(jobs,port,result_file).start()
 		#time.sleep(1)
 	return True
